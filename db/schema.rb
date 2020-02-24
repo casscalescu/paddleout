@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_24_042021) do
+ActiveRecord::Schema.define(version: 2020_02_24_055613) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2020_02_24_042021) do
     t.date "start_date"
     t.date "end_date"
     t.float "total_price"
-    t.string "status"
+    t.string "status", default: "Pending"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["surfboard_id"], name: "index_bookings_on_surfboard_id"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2020_02_24_042021) do
     t.string "brand"
     t.float "price"
     t.string "photo"
-    t.string "type"
+    t.string "category"
     t.string "title"
     t.string "price_duration"
     t.text "description"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 2020_02_24_042021) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "location"
     t.index ["user_id"], name: "index_surfboards_on_user_id"
   end
 
@@ -57,7 +58,6 @@ ActiveRecord::Schema.define(version: 2020_02_24_042021) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "username"
-    t.string "location"
     t.text "description"
     t.string "photo"
     t.index ["email"], name: "index_users_on_email", unique: true
