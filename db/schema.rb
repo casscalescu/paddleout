@@ -10,10 +10,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_24_032529) do
+ActiveRecord::Schema.define(version: 2020_02_24_055613) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "surfboard_id"
+    t.date "start_date"
+    t.date "end_date"
+    t.float "total_price"
+    t.string "status", default: "Pending"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["surfboard_id"], name: "index_bookings_on_surfboard_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "surfboards", force: :cascade do |t|
+    t.string "brand"
+    t.float "price"
+    t.string "photo"
+    t.string "category"
+    t.string "title"
+    t.string "price_duration"
+    t.text "description"
+    t.string "wave_type"
+    t.string "board_dimensions"
+    t.string "fin_type"
+    t.float "deposit"
+    t.string "skill_level"
+    t.string "wave_size"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "location"
+    t.index ["user_id"], name: "index_surfboards_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -24,11 +58,13 @@ ActiveRecord::Schema.define(version: 2020_02_24_032529) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "username"
-    t.string "location"
     t.text "description"
     t.string "photo"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "surfboards"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "surfboards", "users"
 end
