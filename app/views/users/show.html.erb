@@ -1,0 +1,17 @@
+<h1><%= @user.username %></h1>
+<p><%= @user.description %></p>
+<%= cl_image_tag @user.photo.key %>
+<ol>
+	<% @user.surfboards.each do |surfboard| %>
+		<li><%= surfboard.title %></li>
+	<% end %>
+</ol>
+<%= simple_form_for @user do |f| %>
+  <%= f.input :description %>
+  <%= f.input :photo, as: :file %>
+  <%= f.button :submit %>
+<% end %>
+
+<!-- # < link_to "Delete Account", user_path(@user),
+#       method: :delete,
+#       data: { confirm: "Are you sure?" } %> -->
