@@ -27,7 +27,7 @@ puts 'Creating surfboards'
     username: Faker::Internet.username(specifier: 5),
     description: "Now this is a description :))))))))",
     # photo: Faker::Avatar.image,
-    password: Faker::Internet.password
+    password: 'password'
   )
   file = URI.open(Faker::Avatar.image(slug: "user", format: "jpg"))
   new_user.photo.attach(io: file, filename: 'user.jpg', content_type: 'image/jpg')
@@ -43,7 +43,7 @@ puts 'Creating surfboards'
       price_duration: PRICE_DURATION.sample,
       description: Faker::Hipster.sentences(number: 3),
       wave_type: WAVE_TYPE.sample,
-      board_dimensions: "#{rand(190...250)}cm's long",
+      board_dimensions: rand(190...250),
       fin_type: FIN_TYPE.sample,
       deposit: rand(100...300),
       skill_level: SKILL_LEVEL.sample,

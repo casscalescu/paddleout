@@ -1,0 +1,12 @@
+<% if @user.id != @booking.user.id && @user.id != @booking.surfboard.user.id %>
+
+  <%= 'Access Denied' %>
+  <% else %>
+  <h1><%= 'Logged in as ' + @user.username %></h1>
+  <p><%= 'Rent by: ' + @booking.user.username %></p>
+  <p><%= 'Owend by: ' + @booking.surfboard.user.username %></p>
+  <p><%= 'Start date: ' + @booking.start_date.to_s %></p>
+  <p><%= 'End date: ' + @booking.end_date.to_s %></p>
+  <p><%= 'Total Price: ' + '$' + @booking.total_price.to_s %></p>
+  <p><%= 'Status: ' + @booking.status %></p>
+<% end %>
