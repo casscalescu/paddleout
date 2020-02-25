@@ -6,6 +6,6 @@ class User < ApplicationRecord
   has_many :surfboards, dependent: :destroy
   has_many :bookings
   # has_many :surfboards, through: :bookings => not necessary because you can call user.booking.surfboard
-  
+
   validates :username, presence: true, length: { minimum: 4 }
 end
