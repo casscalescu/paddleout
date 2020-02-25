@@ -1,5 +1,11 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
+require "open-uri"
+
+puts 'Clearing database'
+Booking.destroy_all
+Surfboard.destroy_all
+User.destroy_all
 
 CATEGORY = %w(Shortboard Longboard Funboard Hybrid Other)
 PRICE_DURATION = %w(Hour Day Week)
@@ -12,38 +18,46 @@ SURF_BRAND =  ["Jason Stevenson", "Channel Islands", "Firewire", "Rusty Surfboar
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+puts 'Creating users'
+puts 'Creating surfboards'
 20.times do
-  User.create!(
+  new_user = User.create!(
     email: Faker::Internet.email,
     username: Faker::Internet.username(specifier: 5),
     description: "Now this is a description :))))))))",
-    photo: Faker::Avatar.image,
+    # photo: Faker::Avatar.image,
     password: Faker::Internet.password
   )
+  file = URI.open(Faker::Avatar.image(slug: "user", format: "jpg"))
+  new_user.photo.attach(io: file, filename: 'user.jpg', content_type: 'image/jpg')
+  
+  2.times do
+    new_surfboard = Surfboard.create!(
+      user: new_user,
+      brand: SURF_BRAND.sample,
+      price: rand(10..50),
+      # photo: Faker::Avatar.image,
+      category: CATEGORY.sample,
+      title: Faker::Hipster.sentences(number: 1),
+      price_duration: PRICE_DURATION.sample,
+      description: Faker::Hipster.sentences(number: 3),
+      wave_type: WAVE_TYPE.sample,
+      board_dimensions: "#{rand(190...250)}cm's long",
+      fin_type: FIN_TYPE.sample,
+      deposit: rand(100...300),
+      skill_level: SKILL_LEVEL.sample,
+      wave_size: WAVE_SIZE.sample,
+      location: Faker::Address.full_address
+    )
+    file = URI.open(Faker::Avatar.image(slug: "surfboard", format: "jpg"))
+    new_surfboard.photo.attach(io: file, filename: 'surfboard.jpg', content_type: 'image/jpg')
+  end
+
 end
 
 
-10.times do
-  Surfboard.create!(
-    user_id: rand(1..User.count),
-    brand: SURF_BRAND.sample,
-    price: rand(10..50),
-    photo: Faker::Avatar.image,
-    category: CATEGORY.sample,
-    title: Faker::Hipster.sentences(number: 1),
-    price_duration: PRICE_DURATION.sample,
-    description: Faker::Hipster.sentences(number: 3),
-    wave_type: WAVE_TYPE.sample,
-    board_dimensions: "#{rand(190...250)}cm's long",
-    fin_type: FIN_TYPE.sample,
-    deposit: rand(100...300),
-    skill_level: SKILL_LEVEL.sample,
-    wave_size: WAVE_SIZE.sample,
-    location: Faker::Address.full_address
-  )
-end
-
-
+puts 'Creating bookings'
 10.times do
   surf_id = rand(1..Surfboard.count)
   surf_board = Surfboard.find(surf_id)
@@ -67,5 +81,5 @@ end
   )
 end
 
-
+puts 'Finished!'
 
