@@ -6,8 +6,11 @@ class SurfboardsController < ApplicationController
   end
 
   def create
-    #need to set user id
-    Surfboard.create(surfboard_params)
+    @surfboard = Surfboard.new(surfboard_params)
+    @surfboard.user = current_user
+    @surfboard.save
+
+    redirect_to surfboard_path(@surfboard)
   end
 
   def index
@@ -39,6 +42,6 @@ class SurfboardsController < ApplicationController
     end
 
     def surfboard_params
-      params.require(:surfboard).permit(:title, :brand, :category, :board_dimensions, :price_duration, :price, :deposit, :wave_size, :wave_type, :fin_type, :skill_level, :description, :photo)
+      params.require(:surfboard).permit(:title, :brand, :category, :board_dimensions, :location, :price_duration, :price, :deposit, :wave_size, :wave_type, :fin_type, :skill_level, :description, :photo)
     end
 end
