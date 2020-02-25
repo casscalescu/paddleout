@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  
+
   resources :users, except: [ :destroy, :index ]
   resources :surfboards
   resources :bookings, only: [ :new, :create, :index, :show ]

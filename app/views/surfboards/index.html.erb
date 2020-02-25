@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="card">
+    <h1>Surfboards near #location</h1>
+  </div>
+  <div class="row">
+    <% @surfboards.each do |surfboard| %>
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card text-center align-items-center">
+        <!-- Image tag -->
+        <div class="card-body">
+          <h5><%= surfboard.title%></h5>
+          <p><%= surfboard.description %></p>
+          <p><%= surfboard.price %> per <%= surfboard.price_duration %></p>
+        </div>
+        <div class="class-text">
+          <ul>
+            <li>Skill - <%= surfboard.skill_level %></li>
+            <li>Wave Size - <%= surfboard.wave_size %></li>
+            <li>wave Type - <%= surfboard.wave_type %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+
