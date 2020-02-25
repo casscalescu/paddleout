@@ -2,7 +2,7 @@ class Surfboard < ApplicationRecord
   # collections for validation and user input
   CATEGORY = %w(Shortboard Longboard Funboard Hybrid Other)
   PRICE_DURATION = %w(Hour Day Week)
-  SKILL_LEVEL = ["Beginner", " Up To Intermediate", "up To Advanced", "Up To Expert"]
+  SKILL_LEVEL = ["Beginner", "Up To Intermediate", "up To Advanced", "Up To Expert"]
   WAVE_SIZE = ["Up to 3ft", "Up to 5ft", "Up to 7ft", "Up to 10ft", "Up to and more than 10ft"]
   WAVE_TYPE = %w(Reef Pointbreak Beachbreak)
   FIN_TYPE = ['Single-fin', 'Twin', 'Tri/thruster', 'Quad', 'Other']
