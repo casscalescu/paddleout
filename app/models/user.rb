@@ -7,5 +7,7 @@ class User < ApplicationRecord
   has_many :bookings
   # has_many :surfboards, through: :bookings => not necessary because you can call user.booking.surfboard
   
+  has_one_attached :photo
+
   validates :username, presence: true, length: { minimum: 4 }
 end
