@@ -7,7 +7,7 @@ class SurfboardsController < ApplicationController
 
   def create
     #need to set user id
-    Surfboard.new(surfboard_params)
+    Surfboard.create(surfboard_params)
   end
 
   def index
