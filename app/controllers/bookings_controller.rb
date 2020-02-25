@@ -5,6 +5,7 @@ class BookingsController < ApplicationController
   end
 
   def create
+    raise
     @surfboard = Surfboard.find(params[:surfboard_id])
     @user = current_user
     @booking = Booking.new(booking_params)
