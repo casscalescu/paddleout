@@ -9,8 +9,8 @@ User.destroy_all
 
 CATEGORY = %w(Shortboard Longboard Funboard Hybrid Other)
 PRICE_DURATION = %w(Hour Day Week)
-SKILL_LEVEL = %w(Beginner Intermediate Advanced Expert)
-WAVE_SIZE = %w(1-3 4-6 7-10 10+)
+SKILL_LEVEL = ["Beginner", "Up To Intermediate", "up To Advanced", "Up To Expert"]
+WAVE_SIZE = ["Up to 3ft", "Up to 5ft", "Up to 7ft", "Up to 10ft", "Up to and more than 10ft"]
 WAVE_TYPE = %w(Reef Pointbreak Beachbreak)
 FIN_TYPE = ['Single-fin', 'Twin', 'Tri/thruster', 'Quad', 'Other']
 SURF_BRAND =  ["Jason Stevenson", "Channel Islands", "Firewire", "Rusty Surfboards", "Lost Surfboards", "Rip Curl", "Cannibal", "O'Neill"]
@@ -31,7 +31,7 @@ puts 'Creating surfboards'
   )
   file = URI.open(Faker::Avatar.image(slug: "user", format: "jpg"))
   new_user.photo.attach(io: file, filename: 'user.jpg', content_type: 'image/jpg')
-  
+
   2.times do
     new_surfboard = Surfboard.create!(
       user: new_user,

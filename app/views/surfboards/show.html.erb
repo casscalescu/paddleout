@@ -1,0 +1,19 @@
+<div class="card mb-3 d-flex">
+  <div class="align-self-center">
+    <img src="" class="card-img-top" alt="Imagine Slider">
+  </div>
+  <div class="card-body">
+    <h4 class="card-title"><%= @surfboard.title %></h5>
+    <p class="card-text">Skill Level = <%= @surfboard.skill_level %></p>
+    <h5 class="card-title">Information about the Surfboard</h5>
+    <p class="card-text"><%= @surfboard.description %></p>
+    <br>
+    <p class="card-text">Brand = <%= @surfboard.brand %></p>
+    <p class="card-text">Catagory = <%= @surfboard.category %></p>
+    <p class="card-text">Board Dimensions = <%= @surfboard.board_dimensions %> ft</p>
+    <p class="card-text">Cost = <%= @surfboard.price %> per <%= @surfboard.price_duration %></p>
+    <p class="card-text">Deposit Upon Collection = <%= @surfboard.deposit %></p>
+    <p class="card-text">Wave Size = <%= @surfboard.wave_size %></p>
+    <p class="card-text">Fin Type = <%= @surfboard.fin_type %></p>
+  </div>
+</div>
