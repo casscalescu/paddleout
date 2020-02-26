@@ -10,3 +10,5 @@
   <p><%= 'Total Price: ' + '$' + @booking.total_price.to_s %></p>
   <p><%= 'Status: ' + @booking.status %></p>
 <% end %>
+
+<%= link_to 'All Bookings', bookings_path, class: 'btn btn-primary' %>
