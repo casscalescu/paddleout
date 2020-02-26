@@ -1,6 +1,6 @@
 <div class="card mb-3 d-flex">
-  <div class="align-self-center">
-    <img src="" class="card-img-top" alt="Imagine Slider">
+  <div>
+    <%= cl_image_tag @surfboard.photo.key, :style => "height: 350px; width: 350px; object-fit: cover" %>
   </div>
   <div class="card-body">
     <h4 class="card-title"><%= @surfboard.title %></h5>

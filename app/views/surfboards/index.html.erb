@@ -6,6 +6,7 @@
     <% @surfboards.each do |surfboard| %>
     <div class="col-12 col-md-6 col-lg-4">
       <div class="card text-center align-items-center">
+        <%= cl_image_tag surfboard.photo.key, :style => "height: 250px; width: 250px; object-fit: cover" %>
         <!-- Image tag -->
         <div class="card-body">
           <h5><%= surfboard.title%></h5>

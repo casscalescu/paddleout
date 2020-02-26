@@ -17,7 +17,7 @@ class Surfboard < ApplicationRecord
   # validations
   validates :brand, presence: true
   validates :price, presence: true, numericality: true
-  # validates :photo, presence: true
+  validates :photo, presence: true
   validates :category, presence: true, inclusion: { in: CATEGORY }
   validates :title, presence: true
   validates :price_duration, presence: true, inclusion: { in: PRICE_DURATION }

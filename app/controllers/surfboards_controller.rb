@@ -28,7 +28,6 @@ class SurfboardsController < ApplicationController
 
   def edit
     @user = current_user
-    @surfboard = Surfboard.find(params[:id])
   end
 
   # def destroy
