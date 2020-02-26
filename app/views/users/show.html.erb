@@ -1,5 +1,5 @@
 <div class="d-flex container justify-content-around">
-	<div class="profile-name text-center">	
+	<div class="profile-welcome text-center">	
 		<h1>Hello, <%= @user.username %>!</h1>
 		<% if current_user.photo.attachment.nil? %>
       <%= image_tag "profile.jpg", alt: "Profile Picture", :style => "height: 350px; width: 350px; object-fit: cover; border-radius: 50%" %>
@@ -13,15 +13,28 @@
 			</button>
 		</div>
 	</div>
+	
+	<div class="profile-details text-center">
+		<h4>Description:</h4>
+		<p><%= @user.description %></p>
+		<h4>My Listings:</h4>
 
-	<div class="card text-center" style="width: 400px;">
-		<p>Description: <%= @user.description %></p>
-		<ol>
+		<div class="row">
 			<% @user.surfboards.each do |surfboard| %>
-				<li><%= surfboard.title %></li>
+			<div class="col-12">
+				<div class="card text-center align-items-center">
+					<div class="card-body">
+						<%= surfboard.title %>
+						<div>
+							<%= link_to "View Listing", surfboard_path(surfboard), class: "btn btn-primary" %>
+						</div>
+					</div>
+				</div>
+			</div>
 			<% end %>
-		</ol>
-	</div>
+		</div>
+
+
 
 	<!-- Modal -->
 	<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
