@@ -12,8 +12,8 @@ class Surfboard < ApplicationRecord
   belongs_to :user
   has_many :bookings
   # has_many :users, through: :bookings
-  reverse_geocoded_by :latitude, :longitude, address: :location
-  after_validation :reverse_geocode, if: :will_save_change_to_latitude?
+  reverse_geocoded_by :longitude, :latitude, address: :location
+  after_validation :reverse_geocode
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
 

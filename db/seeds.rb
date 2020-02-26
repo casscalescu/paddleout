@@ -49,8 +49,8 @@ puts 'Creating surfboards'
       deposit: rand(100...300),
       skill_level: SKILL_LEVEL.sample,
       wave_size: WAVE_SIZE.sample,
-      latitude: rand(144.931150..-145.001531),
-      longitude: rand(-37.873133..-37.798025)
+      longitude: rand(144.931..145.001),
+      latitude: rand(-37.873..-37.798)
     )
     file = URI.open(Faker::Avatar.image(slug: "surfboard", format: "jpg"))
     new_surfboard.photo.attach(io: file, filename: 'surfboard.jpg', content_type: 'image/jpg')
@@ -61,7 +61,7 @@ end
 
 puts 'Creating bookings'
 3.times do
-  surf_id = rand(1..Surfboard.count)
+  surf_id = rand(Surfboard.first.id..Surfboard.last.id)
   surf_board = Surfboard.find(surf_id)
   time_amount = surf_board.price_duration
   if time_amount == "Day"
@@ -76,7 +76,7 @@ puts 'Creating bookings'
   date_start = rand(7.days.from_now..9.days.from_now)
   Booking.create!(
     surfboard_id: surf_id,
-    user_id: (0..User.count).grep_v(0).grep_v(surf_board.user_id).sample,
+    user_id: (User.first.id..User.last.id).grep_v(surf_board.user_id).sample,
     start_date: date_start,
     end_date: date_end,
     total_price: (((date_end - date_start) / time_devise) * amount).round(2)
