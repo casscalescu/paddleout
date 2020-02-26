@@ -1,6 +1,7 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 require "open-uri"
+require "pry-byebug"
 
 puts 'Clearing database'
 Booking.destroy_all
@@ -21,7 +22,7 @@ SURF_BRAND =  ["Jason Stevenson", "Channel Islands", "Firewire", "Rusty Surfboar
 
 puts 'Creating users'
 puts 'Creating surfboards'
-20.times do
+5.times do
   new_user = User.create!(
     email: Faker::Internet.email,
     username: Faker::Internet.username(specifier: 5),
@@ -32,7 +33,7 @@ puts 'Creating surfboards'
   file = URI.open(Faker::Avatar.image(slug: "user", format: "jpg"))
   new_user.photo.attach(io: file, filename: 'user.jpg', content_type: 'image/jpg')
 
-  2.times do
+  1.times do
     new_surfboard = Surfboard.create!(
       user: new_user,
       brand: SURF_BRAND.sample,
@@ -48,7 +49,8 @@ puts 'Creating surfboards'
       deposit: rand(100...300),
       skill_level: SKILL_LEVEL.sample,
       wave_size: WAVE_SIZE.sample,
-      location: Faker::Address.full_address
+      latitude: rand(-37.900179..-37.708125),
+      longitude: rand(144.783845..145.058503)
     )
     file = URI.open(Faker::Avatar.image(slug: "surfboard", format: "jpg"))
     new_surfboard.photo.attach(io: file, filename: 'surfboard.jpg', content_type: 'image/jpg')
@@ -58,7 +60,7 @@ end
 
 
 puts 'Creating bookings'
-10.times do
+3.times do
   surf_id = rand(1..Surfboard.count)
   surf_board = Surfboard.find(surf_id)
   time_amount = surf_board.price_duration

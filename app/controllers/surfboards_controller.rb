@@ -15,9 +15,17 @@ class SurfboardsController < ApplicationController
 
   def index
     @surfboards = Surfboard.all
+    @surfboardgeos = Surfboard.geocoded
+    @markers = @surfboardgeos.map do |surfboard| {
+        lat: surfboard.latitude,
+        lng: surfboard.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { surfboard: surfboard })
+      }
+    end
   end
 
   def show
+    # @markers = { lat: @surfboard.latitude, lng: @surfboard.longitude }
   end
 
   def update

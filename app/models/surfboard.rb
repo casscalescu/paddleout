@@ -1,5 +1,6 @@
 class Surfboard < ApplicationRecord
   # collections for validation and user input
+
   CATEGORY = %w(Shortboard Longboard Funboard Hybrid Other)
   PRICE_DURATION = %w(Hour Day Week)
   SKILL_LEVEL = ["Beginner", "Up To Intermediate", "up To Advanced", "Up To Expert"]
@@ -11,10 +12,14 @@ class Surfboard < ApplicationRecord
   belongs_to :user
   has_many :bookings
   # has_many :users, through: :bookings
+  reverse_geocoded_by :latitude, :longitude, address: :location
+  after_validation :reverse_geocode, if: :will_save_change_to_latitude?
+  geocoded_by :location
+  after_validation :geocode, if: :will_save_change_to_location?
 
   has_one_attached :photo
 
-  # validations
+  # # validations
   validates :brand, presence: true
   validates :price, presence: true, numericality: true
   # validates :photo, presence: true
@@ -28,7 +33,8 @@ class Surfboard < ApplicationRecord
   validates :deposit, presence: true, numericality: true
   validates :skill_level, presence: true, inclusion: { in: SKILL_LEVEL }
   validates :wave_size, presence: true, inclusion: { in: WAVE_SIZE }
-  validates :location, presence: true
+  # validates :location, presence: true
+
 
   #methods to return array for simpleform
   def cat
