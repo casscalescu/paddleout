@@ -1,16 +1,26 @@
 <div class="container">
   <div class="card">
-    <h1>Surfboards near #location</h1>
+    <h1>Surfboards near location</h1>
+  </div>
+  <div class="row">
+    <div
+      id="map"
+      style="width: 90%;
+      height: 600px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
   </div>
   <div class="row">
     <% @surfboards.each do |surfboard| %>
     <div class="col-12 col-md-6 col-lg-4">
       <div class="card text-center align-items-center">
+        <%= cl_image_tag surfboard.photo.key, :style => "height: 250px; width: 250px; object-fit: cover" %>
         <!-- Image tag -->
         <div class="card-body">
           <h5><%= surfboard.title%></h5>
           <p><%= surfboard.description %></p>
-          <p><%= surfboard.price %> per <%= surfboard.price_duration %></p>
+          <p>$<%= surfboard.price %> per <%= surfboard.price_duration %></p>
         </div>
         <div class="class-text">
           <ul>

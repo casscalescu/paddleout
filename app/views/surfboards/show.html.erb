@@ -1,6 +1,6 @@
 <div class="card mb-3 d-flex">
-  <div class="align-self-center">
-    <img src="" class="card-img-top" alt="Imagine Slider">
+  <div>
+    <%= cl_image_tag @surfboard.photo.key, :style => "height: 350px; width: 350px; object-fit: cover" %>
   </div>
   <div class="card-body">
     <h4 class="card-title"><%= @surfboard.title %></h5>
@@ -18,6 +18,6 @@
   </div>
   <div>
     <%= link_to "Back to Search", surfboards_path, class: "btn btn-primary" %>
-    <%= link_to 'Book', new_booking_path(:surfboard_id => @surfboard.id), class: "btn btn-primary" %>
+    <%= link_to "Edit Listing", edit_surfboard_path, class: "btn btn-primary" unless @surfboard.user != current_user %>
   </div>
 </div>
