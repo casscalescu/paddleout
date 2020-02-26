@@ -17,7 +17,6 @@
     <p class="card-text">Fin Type = <%= @surfboard.fin_type %></p>
   </div>
   <div>
-    <%= link_to "Back to Search", surfboards_path, class: "btn btn-primary" %>
     <%= link_to "Edit Listing", edit_surfboard_path, class: "btn btn-primary" unless @surfboard.user != current_user %>
   </div>
 </div>
