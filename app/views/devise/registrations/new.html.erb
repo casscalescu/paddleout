@@ -22,11 +22,13 @@
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, "Sign up" %>
+      <%= f.button :submit, "Sign up", class: "btn btn-primary" %>
     </div>
   <% end %>
 
-  <p>Already a member?</p>
-  <%= render "devise/shared/links" %>
+  <div>
+    <p>Already a member?</p>
+    <%= render "devise/shared/links" %>
+  </div>
 </div>
 
