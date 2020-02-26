@@ -19,5 +19,6 @@
   <div>
     <%= link_to "Back to Search", surfboards_path, class: "btn btn-primary" %>
     <%= link_to "Edit Listing", edit_surfboard_path, class: "btn btn-primary" unless @surfboard.user != current_user %>
+    <%= link_to "Book This One", new_booking_path(:surfboard_id => @surfboard.id), class: "btn btn-primary" %>
   </div>
 </div>
