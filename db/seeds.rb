@@ -49,8 +49,8 @@ puts 'Creating surfboards'
       deposit: rand(100...300),
       skill_level: SKILL_LEVEL.sample,
       wave_size: WAVE_SIZE.sample,
-      latitude: rand(-37.900179..-37.708125),
-      longitude: rand(144.783845..145.058503)
+      latitude: rand(144.931150..-145.001531),
+      longitude: rand(-37.873133..-37.798025)
     )
     file = URI.open(Faker::Avatar.image(slug: "surfboard", format: "jpg"))
     new_surfboard.photo.attach(io: file, filename: 'surfboard.jpg', content_type: 'image/jpg')
