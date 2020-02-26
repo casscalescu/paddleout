@@ -3,6 +3,7 @@ class SurfboardsController < ApplicationController
 
   def new
     @surfboard = Surfboard.new
+    @user = current_user
   end
 
   def create
@@ -22,9 +23,12 @@ class SurfboardsController < ApplicationController
 
   def update
     @surfboard.update(surfboard_params)
+    redirect_to surfboard_path
   end
 
   def edit
+    @user = current_user
+    @surfboard = Surfboard.find(params[:id])
   end
 
   # def destroy
