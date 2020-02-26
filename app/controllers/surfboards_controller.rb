@@ -33,15 +33,13 @@ class SurfboardsController < ApplicationController
   #   redirect_to surfboard_path
   # end
 
-
-
   private
 
-    def set_surfboard
-      @surfboard = Surfboard.find(params[:id])
-    end
+  def set_surfboard
+    @surfboard = Surfboard.find(params[:id])
+  end
 
-    def surfboard_params
-      params.require(:surfboard).permit(:title, :brand, :category, :board_dimensions, :location, :price_duration, :price, :deposit, :wave_size, :wave_type, :fin_type, :skill_level, :description, :photo)
-    end
+  def surfboard_params
+    params.require(:surfboard).permit(:title, :brand, :category, :board_dimensions, :location, :price_duration, :price, :deposit, :wave_size, :wave_type, :fin_type, :skill_level, :description, :photo)
+  end
 end

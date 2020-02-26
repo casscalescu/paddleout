@@ -18,8 +18,6 @@
   </div>
   <div>
     <%= link_to "Back to Search", surfboards_path, class: "btn btn-primary" %>
-  </div>
-  <div>
-    <%= link_to 'Book', new_surfboard_booking_path(@surfboard) %>
+    <%= link_to 'Book', new_booking_path(:surfboard_id => @surfboard.id), class: "btn btn-primary" %>
   </div>
 </div>

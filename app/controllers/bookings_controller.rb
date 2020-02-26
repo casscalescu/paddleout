@@ -1,20 +1,18 @@
 class BookingsController < ApplicationController
   def new
     @user = current_user
+    @surfboard = Surfboard.find(params[:surfboard_id])
     @booking = Booking.new
   end
 
   def create
-    raise
-    @surfboard = Surfboard.find(params[:surfboard_id])
-    @user = current_user
     @booking = Booking.new(booking_params)
-    @booking.surfboard = @surfboard
-    @booking.user = @user
+    @booking.user = current_user
+    @booking.total_price = (@booking.end_date - @booking.start_date)
     if @booking.save
-      redirect_to user_path(@user)
+      redirect_to bookings_path
     else
-      render 'booking/new'
+      render 'bookings/new'
     end
   end
 
@@ -31,6 +29,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date)
+    params.require(:booking).permit(:start_date, :end_date, :surfboard_id)
   end
 end

@@ -21,7 +21,7 @@ SURF_BRAND =  ["Jason Stevenson", "Channel Islands", "Firewire", "Rusty Surfboar
 
 puts 'Creating users'
 puts 'Creating surfboards'
-20.times do
+10.times do
   new_user = User.create!(
     email: Faker::Internet.email,
     username: Faker::Internet.username(specifier: 5),
@@ -32,7 +32,7 @@ puts 'Creating surfboards'
   file = URI.open(Faker::Avatar.image(slug: "user", format: "jpg"))
   new_user.photo.attach(io: file, filename: 'user.jpg', content_type: 'image/jpg')
 
-  2.times do
+  1.times do
     new_surfboard = Surfboard.create!(
       user: new_user,
       brand: SURF_BRAND.sample,
