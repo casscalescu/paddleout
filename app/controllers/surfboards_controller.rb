@@ -18,6 +18,7 @@ class SurfboardsController < ApplicationController
     if params[:query].present?
       # @surfboards = Surfboard.where("location ILIKE ?", "%#{params[:query]}%")
       @surfboards = Surfboard.near(params[:query], 10, units: :km)
+      @surfboards = Surfboard.all if @surfboards.empty?
     else
       @surfboards = Surfboard.all
     end
