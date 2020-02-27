@@ -1,7 +1,7 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 require "open-uri"
-require "pry-byebug"
+# require "pry-byebug"
 
 
 puts 'Clearing database'
@@ -51,9 +51,10 @@ puts 'Creating surfboards'
       deposit: rand(100...300),
       skill_level: SKILL_LEVEL.sample,
       wave_size: WAVE_SIZE.sample,
-      longitude: rand(144.931..145.001),
-      latitude: rand(-37.873..-37.798)
+      longitude: rand(144.8600..145.0000),
+      latitude: rand(-37.88020..-37.75650)
     )
+    puts "#{new_surfboard.latitude > -37.75650}"
     new_surfboard.title = "#{new_surfboard.brand} Surfboard, #{new_surfboard.board_dimensions}cm's long"
     new_surfboard.description = "In #{SURF_BOARD_CONDITION.sample} condition, #{new_user.description}, only $#{new_surfboard.price} per day, any questions let me know at 04#{rand(1..9)}#{rand(1..9)}#{rand(1..9)}#{rand(1..9)}#{rand(1..9)}#{rand(1..9)}#{rand(1..9)}#{rand(1..9)}"
     new_surfboard.save
@@ -71,12 +72,17 @@ puts "user #{new_user.id} created!"
 
 end
 
+puts "removing boards from the ocean"
+bad_ids = Surfboard.where(location: "Victoria, Australia").pluck(:id)
+
+Surfboard.where(location: "Victoria, Australia").destroy_all
+
 
 puts 'Creating bookings'
 10.times do
-  surf_id = rand(Surfboard.first.id..Surfboard.last.id)
+  surf_id_array = ((Surfboard.first.id..Surfboard.last.id).reject { |id| bad_ids.include?(id) } )
+  surf_id = surf_id_array.sample
   surf_board = Surfboard.find(surf_id)
-  time_amount = surf_board.price_duration
   amount = surf_board.price
   date_end = rand(7.days.from_now..20.days.from_now)
   date_start = rand(3.days.from_now..6.days.from_now)
