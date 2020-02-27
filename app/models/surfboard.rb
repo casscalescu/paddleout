@@ -13,6 +13,7 @@ class Surfboard < ApplicationRecord
   # has_many :users, through: :bookings
   reverse_geocoded_by :longitude, :latitude, address: :location
   after_validation :reverse_geocode
+
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
 
