@@ -1,37 +1,40 @@
-<div class="container">
-  <h1>Surfboards near location</h1>
-  <div class="row">
+<div class="content-container-fluid row", style="width: 100%">
+  <div class="col-lg-8 col-md-6 col-sm-12">
+    <div>
+      <div class="cards-surfboard">
+        <% @surfboards.each do |surfboard| %>
+        <%= link_to surfboard_path(surfboard), :style => "text-decoration: none; color: black;" do%>
+        <div class="card-surfboard">
+          <div>
+            <%= cl_image_tag surfboard.photo.key, :style => "height: 260px; width: 100%; object-fit: cover"%>
+            <!-- Image tag -->
+            <div class="card-body text-center">
+              <h5><%= surfboard.title%></h5>
+              <p>$<%= surfboard.price %> per day</p>
+            </div>
+            <div class="class-text">
+              <ul>
+                <li><%= surfboard.skill_level %></li>
+                <li>Waves <%= surfboard.wave_size %></li>
+                <li><%= surfboard.wave_type %></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="map-card col-lg-4 col-md-6 col-sm-12">
     <div
-      id="map"
-      style="width: 90%;
-      height: 600px;"
+      id="map";
+      class="filters";
+      style="width: 100%;
+      height: 800px;"
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>
-  <div class="row">
-    <% @surfboards.each do |surfboard| %>
-    <div class="col-12 col-md-6 col-lg-4">
-      <div class="card text-center align-items-center">
-        <%= cl_image_tag surfboard.photo.key, :style => "height: 250px; width: 250px; object-fit: cover" %>
-        <!-- Image tag -->
-        <div class="card-body">
-          <h5><%= surfboard.title%></h5>
-          <p><%= surfboard.description %></p>
-          <p>$<%= surfboard.price %> per day</p>
-        </div>
-        <div class="class-text">
-          <ul>
-            <li>Skill - <%= surfboard.skill_level %></li>
-            <li>Wave Size - <%= surfboard.wave_size %></li>
-            <li>wave Type - <%= surfboard.wave_type %></li>
-          </ul>
-          <%= link_to "Inspect", surfboard_path(surfboard), class: "btn btn-primary" %>
-        </div>
-      </div>
-    </div>
-    <% end %>
-  </div>
 </div>
-
 

@@ -1,9 +1,29 @@
 // Specific CSS for your home-page
+.body {
+	text-align: center;
+}
+
+#brand-name {
+	letter-spacing: 2px;
+}
+
+.nav-link {
+	font-size: 16px;
+  font-weight: bold;
+}
+
 .banner {
+  position: relative;
+  width: 100%;
   background-size: cover;
   background-position: center;
-  padding: 300px 0;
+  padding: 280px 0;
   height: 100vh;
+  background-repeat: no-repeat;
+  .container {
+  	text-align: center;
+  	width: 720px;
+  }
 }
 
 .banner h1 {
@@ -13,6 +33,7 @@
   font-size: 32px;
   font-weight: bold;
 }
+
  .container {
  	height: 1000px;
  }
@@ -20,3 +41,29 @@
  .card-steps {
  	margin: 260px 0px 0px 0px;
  }
+
+.search-bar {
+	margin: 16px 0px;
+  text-align: left;
+}
+
+#surfboard_location {
+  padding: 30px;
+  letter-spacing: 2px;
+  font-size: 14px;
+}
+
+.secondary-container {
+  margin: 80px auto;
+  h2 {
+    margin-bottom: 40px;
+  }
+}
+
+.secondary-banner {
+  position: relative;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  padding: 280px 0;
+}
