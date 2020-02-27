@@ -1,4 +1,14 @@
-<h1>Welcome to Seahabilitated!</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<%= link_to "Surfboards", surfboards_path, class: "btn btn-primary" %>
-<%= link_to "Bookings", bookings_path, class: "btn btn-primary" if current_user %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(<%= asset_path('home-banner.jpg') %>);">
+  <div class="container">
+    <h1>Welcome to Seahabilitated!</h1>
+      <%= form_tag surfboards_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          id: "surfboard_location",
+          placeholder: "Search by location"
+        %>
+        <%= submit_tag "Find your Surfboard", class: "btn btn-primary" %>
+      <% end %>
+  </div>
+</div>
