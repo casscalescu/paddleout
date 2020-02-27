@@ -1,0 +1,13 @@
+
+.cards-surfboard {
+  padding-left: 5px;
+  padding-top: 12px;
+  display: grid;
+  flex-grow: 1;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 5px;
+}
+
+.map-card {
+  padding: 0;
+}
