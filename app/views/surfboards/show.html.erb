@@ -11,14 +11,15 @@
     <p class="card-text">Brand = <%= @surfboard.brand %></p>
     <p class="card-text">Catagory = <%= @surfboard.category %></p>
     <p class="card-text">Board Dimensions = <%= @surfboard.board_dimensions %> ft</p>
-    <p class="card-text">Cost = <%= @surfboard.price %> per <%= @surfboard.price_duration %></p>
+    <p class="card-text">Cost = <%= @surfboard.price %> per day</p>
     <p class="card-text">Deposit Upon Collection = <%= @surfboard.deposit %></p>
     <p class="card-text">Wave Size = <%= @surfboard.wave_size %></p>
     <p class="card-text">Fin Type = <%= @surfboard.fin_type %></p>
   </div>
   <div>
     <%= link_to "Back to Search", surfboards_path, class: "btn btn-primary" %>
-    <%= link_to "Edit Listing", edit_surfboard_path, class: "btn btn-primary" unless @surfboard.user != current_user %>
-    <%= link_to "Book This One", new_booking_path(:surfboard_id => @surfboard.id), class: "btn btn-primary" %>
+    <%= link_to "Edit Listing", edit_surfboard_path, class: "btn btn-primary" if @surfboard.user == current_user %>
+    <%= link_to "Book This One", new_booking_path(:surfboard_id => @surfboard.id), class: "btn btn-primary" if @surfboard.user != current_user%>
+    <%= link_to "Delete This Surfboard", surfboard_path(@surfboard), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" if @surfboard.user == current_user %>
   </div>
 </div>

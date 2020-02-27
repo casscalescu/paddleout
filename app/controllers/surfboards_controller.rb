@@ -1,5 +1,5 @@
 class SurfboardsController < ApplicationController
-  before_action :set_surfboard, only: [:edit, :update, :show, :destroy]
+  before_action :set_surfboard, only: %i[edit update show destroy]
 
   def new
     @surfboard = Surfboard.new
@@ -17,11 +17,10 @@ class SurfboardsController < ApplicationController
   def index
     @surfboards = Surfboard.all
     @surfboardgeos = Surfboard.geocoded
-    @markers = @surfboardgeos.map do |surfboard| {
-        lat: surfboard.latitude,
+    @markers = @surfboardgeos.map do |surfboard|
+      { lat: surfboard.latitude,
         lng: surfboard.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { surfboard: surfboard })
-      }
+        infoWindow: render_to_string(partial: "info_window", locals: { surfboard: surfboard }) }
     end
   end
 
@@ -38,11 +37,14 @@ class SurfboardsController < ApplicationController
     @user = current_user
   end
 
-  # def destroy
-  #   @surfboard.destroy
-
-  #   redirect_to surfboard_path
-  # end
+  def destroy
+    if @surfboard.bookings.nil?
+      @surfboard.destroy
+      @message = 'Your surfboard has been deleted.'
+    else
+      @message = 'You can not delete this surfboard because it has been booked.'
+    end
+  end
 
   private
 
