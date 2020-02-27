@@ -1,14 +1,27 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(<%= asset_path('home-banner.jpg') %>);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url(<%= asset_path('home-banner.jpg') %>);">
   <div class="container">
-    <h1>Welcome to Seahabilitated!</h1>
+    <!-- Banner -->
+    <span id="banner-typed-text"></span>
+    <div class="index-search">
       <%= form_tag surfboards_path, method: :get do %>
         <%= text_field_tag :query,
           params[:query],
           class: "form-control",
           id: "surfboard_location",
-          placeholder: "Search by location"
+          placeholder: "Search by Location"
         %>
-        <%= submit_tag "Find your Surfboard", class: "btn btn-primary" %>
       <% end %>
+    </div>
+    <div>
+      <%= submit_tag "FIND YOUR SURFBOARD", class: "button" %>
+    </div>
+
+    <!-- Steps Banner -->
+    <div class="d-flex justify-content-around">
+      <div class="card-steps"></div>
+      <div class="card-steps"></div>
+      <div class="card-steps"></div>
+    </div>
+
   </div>
 </div>
