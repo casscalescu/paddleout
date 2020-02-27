@@ -14,8 +14,8 @@
           <%= f.input :brand %>
           <%= f.input :category, as: :radio_buttons, collection: @surfboard.cat %>
           <%= f.input :board_dimensions, label: "Board Dimensions in Feet" %>
-          <%= f.input :price_duration, collection: @surfboard.pd, label: "Rent by Hours, Days or Weeks"%>
-          <%= f.input :price, label: "Price per Hour/Day/Week" %>
+          <%= f.input :price_duration, collection: @surfboard.pd, label: "Rent by Days or Weeks"%>
+          <%= f.input :price, label: "Price per Day/Week" %>
           <%= f.input :deposit, label: "Deposit on pickup" %>
           <%= f.input :wave_size, as: :radio_buttons, collection: @surfboard.wavesize %>
           <%= f.input :wave_type, as: :radio_buttons, collection: @surfboard.wavetype %>

@@ -25,7 +25,7 @@ class Surfboard < ApplicationRecord
   validates :photo, presence: true
   validates :category, presence: true, inclusion: { in: CATEGORY }
   validates :title, presence: true
-  validates :price_duration, presence: true, inclusion: { in: PRICE_DURATION }
+  # validates :price_duration, presence: true, inclusion: { in: PRICE_DURATION }
   validates :description, presence: true
   validates :wave_type, presence: true, inclusion: { in: WAVE_TYPE }
   validates :board_dimensions, presence: true
