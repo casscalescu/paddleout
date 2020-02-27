@@ -34,11 +34,6 @@ class BookingsController < ApplicationController
 
   def calculate_total_price(booking)
     surfboard = booking.surfboard
-    price = case surfboard.price_duration
-            when 'Week' then (((booking.end_date - booking.start_date) / 604_800) * surfboard.price).round(2)
-            when 'Day' then (((booking.end_date - booking.start_date) / 86_400) * surfboard.price).round(2)
-            when 'Hour' then (((booking.end_date - booking.start_date) / 3600) * surfboard.price).round(2)
-            end
-    price
+    ((booking.end_date - booking.start_date) * surfboard.price).round(2)
   end
 end
