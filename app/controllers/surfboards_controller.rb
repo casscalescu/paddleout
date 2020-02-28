@@ -46,7 +46,7 @@ class SurfboardsController < ApplicationController
   end
 
   def destroy
-    if @surfboard.bookings.nil?
+    if @surfboard.bookings.count.zero?
       @surfboard.destroy
       @message = 'Your surfboard has been deleted.'
     else
