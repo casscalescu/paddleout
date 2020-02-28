@@ -7,8 +7,7 @@ import 'flatpickr/dist/flatpickr.css';
 import { toggleDateInputs } from '../components/booking';
 import { loadDynamicBannerText } from '../components/banner';
 
-// toggleDateInputs();
+toggleDateInputs('#booking_start_date');
 initMapbox();
 initAutoCompleteField('#surfboard_location');
 loadDynamicBannerText();
-
