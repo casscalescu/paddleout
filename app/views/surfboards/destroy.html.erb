@@ -1,6 +1,15 @@
-<h1>Surfboards#destroy</h1>
-<p>Find me in app/views/surfboards/destroy.html.erb</p>
-
-<h1><%= @message %></h1>
-
-<%= link_to "Back", user_path(current_user), class: "btn btn-primary" %>
+<div class="container d-flex justify-content-center">
+  <div class="card text-center" style="width: 50%, padding-top: 10px">
+    <div class="card-header">
+      Surfboard Deletion
+    </div>
+    <div class="card-body">
+      <h5 class="card-title"><%= @message %></h5>
+      <p class="card-text"></p>
+      <%= link_to "Back", user_path(current_user), class: "btn btn-primary" %>
+    </div>
+    <div class="card-footer text-muted">
+      Hope You Create Another Soon :)
+    </div>
+  </div>
+</div>
