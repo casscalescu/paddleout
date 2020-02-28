@@ -1,2 +1,7 @@
-<h1><%= 'Start a new booking' %></h1>
-<%= render 'new_form' %>
+<h1><%= 'You need to login before make any bookings.' unless current_user %></h2>
+<%= link_to 'Login', new_user_session_path, class: "btn btn-primary" unless current_user %>
+
+<div class="unavailable-date" data-unavailable="<%= @surfboard.unavailable_dates.to_json %>">
+  <h1><%= 'Start a new booking' if current_user %></h1>
+  <%= render 'new_form' if current_user %>
+</div>
