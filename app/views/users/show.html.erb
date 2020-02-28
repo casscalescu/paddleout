@@ -1,4 +1,4 @@
-<div class="d-flex container justify-content-around">
+<div class="d-flex container justify-content-around align-items-center">
 	<div class="profile-welcome text-center">	
 		<h1>Hello, <%= @user.username %>!</h1>
 		<% if current_user.photo.attachment.nil? %>
@@ -8,17 +8,23 @@
     <% end %>
 		<!-- < cl_image_tag @user.photo.key unless @user.photo.attachment.nil? %> -->
 		<div>
+    <br>
 			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
 				  Edit Profile
 			</button>
 		</div>
 	</div>
-	
 	<div class="profile-details text-center">
 		<h4>Description:</h4>
 		<p><%= @user.description %></p>
+    <hr>
 		<h4>My Listings:</h4>
-
+    <div class="alert alert-success position-static" role="alert" >
+      <%= "Currently you don't have any listings" if @user.surfboards.count.zero? %>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
 		<div class="row">
 			<% @user.surfboards.each do |surfboard| %>
 			<div class="col-12">
@@ -35,7 +41,12 @@
 		</div>
   <hr>
     <h4>My bookings:</h4>
-    <h6><%= "Currently you don't have any bookings" if @user.bookings.count.zero? %></h6>
+    <div class="alert alert-warning position-static" role="alert" >
+      <%= "Currently you don't have any bookings" if @user.bookings.count.zero? %>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
     <div class="row">
 			<% @user.bookings.each do |booking| %>
 			<div class="col-12">
