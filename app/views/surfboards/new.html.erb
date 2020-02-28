@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-form">
   <% if @user.nil? %>
     <p>You are not signed in! Sign Up or Login to create a listing:</p>
     <div>
@@ -6,24 +6,28 @@
       <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary" %>
     </div>
   <% else %>
-      <div class="card text-center">
-        <h1>Create Surfboard</h1>
-        <%= simple_form_for @surfboard do |f| %>
-          <%= f.input :title %>
-          <%= f.input :brand %>
-          <%= f.input :category, as: :radio_buttons, collection: @surfboard.cat %>
-          <%= f.input :board_dimensions, label: "Board Dimensions in Centimetres" %>
-          <%= f.input :price, label: "Price per Day" %>
-          <%= f.input :deposit, label: "Deposit on pickup" %>
-          <%= f.input :wave_size, as: :radio_buttons, collection: @surfboard.wavesize %>
-          <%= f.input :wave_type, as: :radio_buttons, collection: @surfboard.wavetype %>
-          <%= f.input :fin_type, as: :radio_buttons, collection: @surfboard.fintype %>
-          <%= f.input :skill_level, as: :radio_buttons, collection: @surfboard.skilllev %>
-          <%= f.input :description, label: "Please enter a detailed description about your item, including its condition" %>
-          <%= f.input :location, label: "What is Surfboards location" %>
-          <%= f.input :photo, as: :file %>
-          <%= f.button :submit , class: "btn btn-primary"%>
-        <% end %>
+      <div class="form-contents">
+        <div class="form-body">
+          <h1>Create Surfboard</h1>
+          <br>
+          <%= simple_form_for @surfboard do |f| %>
+            <%= f.input :title %>
+            <%= f.input :brand %>
+            <%= f.input :category, as: :radio_buttons, collection: @surfboard.cat %>
+            <%= f.input :board_dimensions, label: "Board Dimensions in Centimetres" %>
+            <%= f.input :price, label: "Price per Day" %>
+            <%= f.input :deposit, label: "Deposit on pickup" %>
+            <%= f.input :wave_size, as: :radio_buttons, collection: @surfboard.wavesize %>
+            <%= f.input :wave_type, as: :radio_buttons, collection: @surfboard.wavetype %>
+            <%= f.input :fin_type, as: :radio_buttons, collection: @surfboard.fintype %>
+            <%= f.input :skill_level, as: :radio_buttons, collection: @surfboard.skilllev %>
+            <%= f.input :description, label: "Please enter a detailed description about your item, including its condition" %>
+            <%= f.input :location, label: "What is Surfboards location" %>
+            <%= f.input :photo, as: :file %>
+            <%= f.button :submit , class: "button"%>
+          <% end %>
+          
+        </div>
       </div>
   <% end %>
 </div>

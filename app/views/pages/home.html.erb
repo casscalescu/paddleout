@@ -1,6 +1,6 @@
 <!-- Banner -->
 <div class="main-container">
-  
+
   <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(<%= asset_path('home-banner.jpg') %>);">
     <div class="banner-container">
       <h1>
@@ -17,7 +17,7 @@
           <div id="banner-button">
             <%= submit_tag "Find your Surfboard", class: "button" %>
           </div>
-        <% end %> 
+        <% end %>
       </div>
     </div>
   </div>
@@ -26,29 +26,35 @@
   <div class="secondary-container">
     <h2>How it works</h2>
     <div class="d-flex justify-content-around">
+      <%= link_to new_user_registration_path , :style => "text-decoration: none; color: black;" do %>
       <div class="card-home text-uppercase">
         <div class="card-home-content text-center">
           <i class="home-icon fas far fa-hand-pointer"></i>
           <p>Create an <br>account</p>
         </div>
       </div>
+      <% end %>
+      <%= link_to surfboards_path , :style => "text-decoration: none; color: black;" do %>
       <div class="card-home text-uppercase">
         <div class="card-home-content text-center">
           <i class="home-icon fas fa-search-location"></i>
           <p>Search for a surfboard nearby</p>
         </div>
       </div>
+      <% end %>
+      <%= link_to surfboards_path , :style => "text-decoration: none; color: black;" do %>
       <div class="card-home text-uppercase">
         <div class="card-home-content text-center">
           <i class="home-icon fas fa-water"></i>
           <p>Collect and head to the surf</p>
         </div>
       </div>
+      <% end %>
 
-      
+
     </div>
   </div>
-  
+
   <!-- Secondary Banner -->
   <div class="secondary-banner" style="background-image: linear-gradient(to bottom, rgba(22,22,22,0.1) 0%, rgba(22,22,22,0.5) 75%, #161616 100%), url(<%= asset_path('secondary-banner.jpg') %>);">
   </div>

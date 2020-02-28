@@ -33,7 +33,24 @@
 			</div>
 			<% end %>
 		</div>
-
+  <hr>
+    <h4>My bookings:</h4>
+    <h6><%= "Currently you don't have any bookings" if @user.bookings.count.zero? %></h6>
+    <div class="row">
+			<% @user.bookings.each do |booking| %>
+			<div class="col-12">
+				<div class="card text-center align-items-center">
+					<div class="card-body">
+						<%= booking.surfboard.title %>
+            <%= " | #{booking.start_date} to #{booking.end_date}" %>
+						<div>
+							<%= link_to "View booking", booking_path(booking), class: "btn btn-primary" %>
+						</div>
+					</div>
+				</div>
+			</div>
+			<% end %>
+		</div>
 
 
 	<!-- Modal -->
