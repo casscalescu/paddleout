@@ -1,0 +1,19 @@
+.card-home {
+	width: 300px;
+	height: 300px;
+  border-radius: 3px;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.1);
+  padding: 32px;
+  background-size: cover;
+  border: none;
+  border-bottom: 4px solid #ffd373;
+  p {
+  	color: black;
+  	text-align: center;
+  }
+}
+
+.home-icon {
+  color: #006b69;
+  font-size: 30px;
+}

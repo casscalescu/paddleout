@@ -2,7 +2,7 @@
 	<div class="profile-welcome text-center">	
 		<h1>Hello, <%= @user.username %>!</h1>
 		<% if current_user.photo.attachment.nil? %>
-      <%= image_tag "profile.jpg", alt: "Profile Picture", :style => "height: 350px; width: 350px; object-fit: cover; border-radius: 50%" %>
+      <%= image_tag "avatar.png", alt: "Profile Picture", :style => "height: 350px; width: 350px; object-fit: cover; border-radius: 50%" %>
         <% else %>
       <%= cl_image_tag current_user.photo.key, :style => "height: 350px; width: 350px; object-fit: cover; border-radius: 50%" %>
     <% end %>
