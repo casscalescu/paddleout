@@ -23,7 +23,7 @@ class SurfboardsController < ApplicationController
     else
       @surfboards = Surfboard.all
     end
-    @markers = @surfboards.map do |surfboard| 
+    @markers = @surfboards.map do |surfboard|
       {
         lat: surfboard.latitude,
         lng: surfboard.longitude,
