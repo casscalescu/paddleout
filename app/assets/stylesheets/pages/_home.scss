@@ -1,4 +1,9 @@
 // Specific CSS for your home-page
+body {
+  letter-spacing: 2px;
+  line-height: 28px;
+}
+
 .main-container {
   background-color: #f7f7f7;
 	text-align: center;
@@ -73,5 +78,17 @@
   width: 100%;
   background-size: cover;
   background-position: center;
-  padding: 280px 0;
+  height: 600px;
+  display: flex;
+  align-items: flex-end;
+}
+
+#secondary-banner-text {
+  font-size: 44px;
+  margin: 60px;
+  color: white;
+  letter-spacing: 5px;
+  background: -webkit-linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.1));
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
 }
