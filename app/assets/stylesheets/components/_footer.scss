@@ -11,6 +11,9 @@
 .footer-link {
 	font-size: 32px;
 	color: #ffd373;
+	&:hover {
+		color: orange;
+	}
 }
 
 #footer-copyright {

@@ -7,13 +7,27 @@
   background-size: cover;
   border: none;
   border-bottom: 4px solid #ffd373;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   p {
   	color: black;
   	text-align: center;
   }
 }
 
+.card-home:hover {
+  transform: translate3d(0px, -5px, 0px);
+}
+
 .home-icon {
   color: #006b69;
   font-size: 30px;
+}
+
+.card-home-content {
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }

@@ -78,22 +78,22 @@ bad_ids = Surfboard.where(location: "Victoria, Australia").pluck(:id)
 Surfboard.where(location: "Victoria, Australia").destroy_all
 
 
-puts 'Creating bookings'
-10.times do
-  surf_id_array = ((Surfboard.first.id..Surfboard.last.id).reject { |id| bad_ids.include?(id) } )
-  surf_id = surf_id_array.sample
-  surf_board = Surfboard.find(surf_id)
-  amount = surf_board.price
-  date_end = rand(7.days.from_now..20.days.from_now)
-  date_start = rand(3.days.from_now..6.days.from_now)
-  Booking.create!(
-    surfboard_id: surf_id,
-    user_id: (User.first.id..User.last.id).grep_v(surf_board.user_id).sample,
-    start_date: date_start,
-    end_date: date_end,
-    total_price: (((date_end - date_start) / 86400) * amount).round(2)
-  )
-end
+# puts 'Creating bookings'
+# 10.times do
+#   surf_id_array = ((Surfboard.first.id..Surfboard.last.id).reject { |id| bad_ids.include?(id) } )
+#   surf_id = surf_id_array.sample
+#   surf_board = Surfboard.find(surf_id)
+#   amount = surf_board.price
+#   date_end = rand(7.days.from_now..20.days.from_now)
+#   date_start = rand(3.days.from_now..6.days.from_now)
+#   Booking.create!(
+#     surfboard_id: surf_id,
+#     user_id: (User.first.id..User.last.id).grep_v(surf_board.user_id).sample,
+#     start_date: date_start,
+#     end_date: date_end,
+#     total_price: (((date_end - date_start) / 86400) * amount).round(2)
+#   )
+# end
 
 puts 'Finished!'
 
