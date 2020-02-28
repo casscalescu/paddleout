@@ -4,11 +4,20 @@
 	text-align: center;
 }
 
-.form-body {
+.form-container {
 	background-color: white;
+	.form-header {
+		padding-top: 24px;
+	}
+}
+
+.form-body {
   padding: 4% 22%;
   letter-spacing: 1px;
   line-height: 32px;
+  a {
+  	color: black;
+  }
 }
 
 #surfboard_photo {

@@ -1,5 +1,6 @@
 .button {
 	background-color: #ffd373;
+	color: black;
 	padding: 16px 24px;
     letter-spacing: 2px;
     border-radius: 4px;
@@ -9,5 +10,6 @@
 	&:hover {
 		background-color: #006b69;
 		color: white;
+		text-decoration: none;
 	}
 }
