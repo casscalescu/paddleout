@@ -2,7 +2,7 @@
   <% if @user.nil? %>
     <p>You are not signed in! Sign Up or Login to create a listing:</p>
     <div>
-      <%= link_to "Login", new_user_session_path, class: "btn btn-primary" %>
+      <%= link_to "Login", new_user_session_path, class: "button" %>
       <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary" %>
     </div>
   <% else %>
@@ -23,7 +23,9 @@
           <%= f.input :fin_type, as: :radio_buttons, collection: @surfboard.fintype %>
           <%= f.input :skill_level, as: :radio_buttons, collection: @surfboard.skilllev %>
           <%= f.input :description, label: "Please enter a detailed description about your item, including its condition" %>
-          <%= f.input :location, label: "What is Surfboards location" %>
+          <div class="search-bar">
+            <%= f.input :location, label: "What is Surfboards location" %>
+          </div>
           <%= f.input :photo, as: :file %>
           <%= f.button :submit , class: "button"%>
         <% end %>
