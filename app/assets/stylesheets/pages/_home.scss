@@ -1,6 +1,10 @@
 // Specific CSS for your home-page
-.body {
+.main-container {
 	text-align: center;
+  min-height: 100vh;
+  overflow: hidden;
+  display: block;
+  position: relative;
 }
 
 #brand-name {
@@ -20,10 +24,12 @@
   padding: 280px 0;
   height: 100vh;
   background-repeat: no-repeat;
-  .container {
-  	text-align: center;
-  	width: 720px;
-  }
+}
+
+.banner-container {
+  text-align: center;
+  width: 720px;
+  margin: 0 auto;
 }
 
 .banner h1 {
@@ -34,9 +40,9 @@
   font-weight: bold;
 }
 
- .container {
- 	height: 1000px;
- }
+#banner-button {
+  text-align: center;
+}
 
  .card-steps {
  	margin: 260px 0px 0px 0px;

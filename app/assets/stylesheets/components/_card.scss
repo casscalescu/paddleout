@@ -1,9 +1,4 @@
-.card-steps {
-	height: 250px;
-	width: 250px;
-	background-color: red;
-
-.card {
+.card-home {
 	width: 300px;
 	height: 300px;
   border-radius: 3px;
@@ -11,7 +6,6 @@
   padding: 32px;
   background-size: cover;
   border: none;
-  background-position: center;
   border-bottom: 4px solid #ffd373;
   p {
   	color: black;
@@ -19,7 +13,7 @@
   }
 }
 
-.fas {
+.home-icon {
   color: #006b69;
   font-size: 30px;
 }

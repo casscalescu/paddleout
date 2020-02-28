@@ -1,18 +1,22 @@
-.fab {
-	font-size: 32px;
-	color: #ffd373;
-}
-
 .footer {
 	background-color: #161616;
 	padding: 48px 48px 0px 48px;
 	position: absolute;
+	bottom: 0;
 	width: 100%;
+	text-align: center;
+	height: 150px;
 }
 
-p {
+.footer-link {
+	font-size: 32px;
+	color: #ffd373;
+}
+
+#footer-copyright {
 	color: #ffd373;
 	opacity: 0.5;
 	letter-spacing: 1px;
     font-size: 14px;
+    margin: 8px;
 }
