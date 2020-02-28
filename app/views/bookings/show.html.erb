@@ -1,14 +1,23 @@
-<% if @user.id != @booking.user.id && @user.id != @booking.surfboard.user.id %>
+<div class="container-form">
+	<div class="form-container">
+		<div class="form-body"> 
+			
+			<% if @user.nil? %>
+			  <%= 'Access Denied' %>
+			<%= elsif @user.id != @booking.user.id && @user.id != @booking.surfboard.user.id && @user.present? %>
+			 <%= 'Access Denied' %>
+			<% else %>
+			  <h1>Your Bookings:</h1>
+			  <p><%= 'Rent by: ' + @booking.user.username %></p>
+			  <p><%= 'Owend by: ' + @booking.surfboard.user.username %></p>
+			  <p><%= 'Start date: ' + @booking.start_date.to_s %></p>
+			  <p><%= 'End date: ' + @booking.end_date.to_s %></p>
+			  <p><%= 'Total Price: ' + '$' + @booking.total_price.to_s %></p>
+			  <p><%= 'Status: ' + @booking.status %></p>
+			<% end %>
 
-  <%= 'Access Denied' %>
-  <% else %>
-  <h1><%= 'Logged in as ' + @user.username %></h1>
-  <p><%= 'Rent by: ' + @booking.user.username %></p>
-  <p><%= 'Owend by: ' + @booking.surfboard.user.username %></p>
-  <p><%= 'Start date: ' + @booking.start_date.to_s %></p>
-  <p><%= 'End date: ' + @booking.end_date.to_s %></p>
-  <p><%= 'Total Price: ' + '$' + @booking.total_price.to_s %></p>
-  <p><%= 'Status: ' + @booking.status %></p>
-<% end %>
-
-<%= link_to 'All Bookings', bookings_path, class: 'btn btn-primary' %>
+		<%= link_to 'All Bookings', bookings_path, class: 'button' %>
+		</div>
+	</div>
+	
+</div>

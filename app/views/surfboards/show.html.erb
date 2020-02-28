@@ -1,30 +1,30 @@
-<div class="card-surfboard-container">
-  <div class="card-surfboard-content">
-    <div class="card show-surf d-flex align-items-center text-center">
-      <div>
-        <%= cl_image_tag @surfboard.photo.key, :style => "height: 350px; width: 350px; object-fit: cover" %>
-      </div>
-      <div class="checkout-buttons">
-        <%= link_to "Back to Search", surfboards_path, class: "button" %>
-        <%= link_to "Edit", edit_surfboard_path, class: "button" if @surfboard.user == current_user %>
-        <%= link_to "Book This One", new_booking_path(:surfboard_id => @surfboard.id), class: "button" if @surfboard.user != current_user%>
-        <%= link_to "Delete", surfboard_path(@surfboard), method: :delete, data: { confirm: 'Are you sure?' }, class: "button" if @surfboard.user == current_user %>
-      </div>
-      <div class="card-body">
-        <h4 class="card-title"><%= @surfboard.title %></h5>
-        <p class="card-text">Skill Level = <%= @surfboard.skill_level %></p>
-        <h5 class="card-title">Information about the Surfboard</h5>
-        <p class="card-text"><%= @surfboard.description %></p>
-        <br>
-        <p class="card-text">Brand is <%= @surfboard.brand %></p>
-        <p class="card-text">Catagory is <%= @surfboard.category %></p>
-        <p class="card-text">Board Dimensions is <%= @surfboard.board_dimensions %> ft</p>
-        <p class="card-text">Wave Size is <%= @surfboard.wave_size %></p>
-        <p class="card-text">Fin Type is <%= @surfboard.fin_type %></p>
-        <p class="card-text">Cost = <%= @surfboard.price %> per day</p>
-        <p class="card-text">Deposit Upon Collection = <%= @surfboard.deposit %></p>
-      </div>
+<div class="container-surfboard">
+  <div class="surfboard-container">
+    <div class="surfboard-image-contents">
+      <%= cl_image_tag @surfboard.photo.key, :style => "height: 350px; width: 350px; object-fit: cover", class: "surfboard-image" %>
     </div>
+    <div class="checkout-buttons">
+      <%= link_to "Back to Search", surfboards_path, class: "button" %>
+      <%= link_to "Edit", edit_surfboard_path, class: "button" if @surfboard.user == current_user %>
+      <%= link_to "Book This One", new_booking_path(:surfboard_id => @surfboard.id), class: "button" if @surfboard.user != current_user%>
+      <%= link_to "Delete", surfboard_path(@surfboard), method: :delete, data: { confirm: 'Are you sure?' }, class: "button" if @surfboard.user == current_user %>
+    </div>
+    <br>
+    <div class="card-body">
+      <h4 class="card-title"><%= @surfboard.title %></h5>
+      <p class="card-text"><strong>Skill Level:</strong> <%= @surfboard.skill_level %></p>
+      <h5 class="card-title">Information about the Surfboard</h5>
+      <p class="card-text"><%= @surfboard.description %></p>
+      <br>
+      <p class="card-text"><strong>Brand:</strong> <%= @surfboard.brand %></p>
+      <p class="card-text"><strong>Catagory:</strong> <%= @surfboard.category %></p>
+      <p class="card-text"><strong>Board Dimensions:</strong> <%= @surfboard.board_dimensions %> ft</p>
+      <p class="card-text"><strong>Wave Size:</strong> <%= @surfboard.wave_size %></p>
+      <p class="card-text"><strong>Fin Type:</strong> <%= @surfboard.fin_type %></p>
+      <p class="card-text"><strong>Cost =</strong> $<%= @surfboard.price %> per day</p>
+      <p class="card-text"><strong>Deposit Upon Collection =</strong> $<%= @surfboard.deposit %></p>
+    </div>
+    
   </div>
 </div>
 
