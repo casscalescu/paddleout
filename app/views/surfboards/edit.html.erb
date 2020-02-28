@@ -1,15 +1,16 @@
-<% if @user.id != @surfboard.user.id %>
-  <%= 'You cannot edit this listing!' %>
-  <div>
-    <%= link_to "Back to Search", surfboards_path, class: "btn btn-primary" %>
-  </div>
-<% else %>
+<div class="container-form">
+  <% if @user.id != @surfboard.user.id %>
+    <%= 'You cannot edit this listing!' %>
+    <div>
+      <%= link_to "Back to Search", surfboards_path, class: "button" %>
+    </div>
+  <% else %>
 
-
-  <div class="container">
-    <div class="card text-center">
-      <h1>Editing Surfboard</h1>
-      <div class="card">
+    <div class="form-container">
+      <div class="form-header">
+        <h1>Editing Surfboard</h1>
+      </div>
+      <div class="form-body">
         <%= simple_form_for @surfboard do |f| %>
           <%= f.input :title %>
           <%= f.input :brand %>
@@ -24,12 +25,14 @@
           <%= f.input :description, label: "Please enter a detailed description about your item, including its condition" %>
           <%= f.input :location, label: "What is Surfboards location" %>
           <%= f.input :photo, as: :file %>
-          <%= f.button :submit , class: "btn btn-primary"%>
+          <%= f.button :submit , class: "button"%>
         <% end %>
+    <!--     < link_to 'Delete Surfboard', @surfboard, :method => 'delete' %> -->
       </div>
-  <!--     < link_to 'Delete Surfboard', @surfboard, :method => 'delete' %> -->
     </div>
-  </div>
 
-<% end %>
+  <% end %>
+  
+</div>
+
 
