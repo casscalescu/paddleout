@@ -8,10 +8,11 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
-    @booking.total_price = calculate_total_price(@booking)
+    @booking.total_price = calculate_total_price(@booking) if @booking.valid?
     if @booking.save
       redirect_to bookings_path
     else
+      @surfboard = @booking.surfboard
       render 'bookings/new'
     end
   end

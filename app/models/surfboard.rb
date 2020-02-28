@@ -53,4 +53,11 @@ class Surfboard < ApplicationRecord
   def fintype
     FIN_TYPE
   end
+
+  # for flatpicker
+  def unavailable_dates
+    bookings.pluck(:start_date, :end_date).map do |range|
+      { from: range[0], to: range[1] }
+    end
+  end
 end
