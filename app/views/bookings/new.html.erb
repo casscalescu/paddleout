@@ -1,14 +1,12 @@
 <div class="container-form">
 	<div class="form-container">
 		<div class="form-header">
-	  	<h1><%= 'Start a new booking' if current_user %></h1>
+	  	<h1><%= 'Start a new booking' %></h1>
 		</div>
 		<div class="form-body">
-			<p><%= 'You need to login before making a booking' unless current_user %></p>
-			<%= link_to 'Login', new_user_session_path, class: "button" unless current_user %>
 			<div class="unavailable-date" data-unavailable="<%= @surfboard.unavailable_dates.to_json %>">
 			</div>
-	  	<%= render 'new_form' if current_user %>
+	  	<%= render 'new_form' %>
 		</div>
 	</div>
 </div>

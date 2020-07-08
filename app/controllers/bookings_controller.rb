@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+  before_action :authenticate_user!
   def new
     @user = current_user
     @surfboard = Surfboard.find(params[:surfboard_id])
@@ -25,6 +26,7 @@ class BookingsController < ApplicationController
   def index
     @bookings = Booking.all
     @user = current_user
+    # raise
   end
 
   private

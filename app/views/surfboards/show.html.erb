@@ -6,7 +6,7 @@
     <div class="checkout-buttons">
       <%= link_to "Back to Search", surfboards_path, class: "button" %>
       <%= link_to "Edit", edit_surfboard_path, class: "button" if @surfboard.user == current_user %>
-      <%= link_to "Book This One", new_booking_path(:surfboard_id => @surfboard.id), class: "button" if @surfboard.user != current_user%>
+      <%= link_to "Book This One", new_booking_path(surfboard_id: @surfboard.id) %>
       <%= link_to "Delete", surfboard_path(@surfboard), method: :delete, data: { confirm: 'Are you sure?' }, class: "button" if @surfboard.user == current_user %>
     </div>
     <br>
@@ -24,7 +24,7 @@
       <p class="card-text"><strong>Cost =</strong> $<%= @surfboard.price %> per day</p>
       <p class="card-text"><strong>Deposit Upon Collection =</strong> $<%= @surfboard.deposit %></p>
     </div>
-    
+
   </div>
 </div>
 
