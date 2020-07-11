@@ -1,7 +1,5 @@
 # Paddle Out
-```shell
 Think AirBnb, but for surfboards! A user can create a profile, list their board and make a booking to hire a board.
-```
 
 ## Install
 
