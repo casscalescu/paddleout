@@ -1,0 +1,27 @@
+<div class="modal fade" id="surfboardEditModal" tabindex="-1" role="dialog" aria-labelledby="surfboardEditModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Edit Surfboard</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for @user do |f| %>
+          <%= simple_form_for @surfboard do |f| %>
+          <%= f.input :name %>
+          <%= f.input :brand %>
+          <%= f.input :category, as: :radio_buttons, collection: @surfboard.cat %>
+          <%= f.input :price, label: "Price per Day" %>
+          <%= f.input :deposit, label: "Deposit on pickup" %>
+          <%= f.input :description, label: "Please enter a detailed description about your item, including its condition" %>
+          <%= f.input :location, label: "What is Surfboards location" %>
+          <%= f.input :photo, as: :file %>
+          <%= f.button :submit , class: "btn btn-primary"%>
+        <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

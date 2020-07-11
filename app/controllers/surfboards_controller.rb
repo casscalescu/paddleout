@@ -1,25 +1,25 @@
 class SurfboardsController < ApplicationController
-  before_action :set_surfboard, only: %i[edit update show destroy]
+  skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :find_surfboard, only: %i[edit update show destroy]
 
   def new
     @surfboard = Surfboard.new
-    @user = current_user
   end
 
   def create
     @surfboard = Surfboard.new(surfboard_params)
     @surfboard.user = current_user
-    @surfboard.save
-
-    redirect_to surfboard_path(@surfboard)
+    if @surfboard.save
+      redirect_to surfboard_path(@surfboard)
+    else
+      render :new
+    end
   end
 
   def index
     if params[:query].present?
-      # @surfboards = Surfboard.where("location ILIKE ?", "%#{params[:query]}%")
       @surfboards = Surfboard.near(params[:query], 5, units: :km)
       @surfboards = Surfboard.all if @surfboards.empty?
-      # @surfboards.empty? ? @surfboards = Surfboard.all : @surfboards
     else
       @surfboards = Surfboard.all
     end
@@ -29,16 +29,18 @@ class SurfboardsController < ApplicationController
         lng: surfboard.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { surfboard: surfboard }) }
     end
-    # @surfboardgeos = @surfboards.geocoded
   end
 
   def show
-    # @markers = { lat: @surfboard.latitude, lng: @surfboard.longitude }
+    @user = current_user
   end
 
   def update
-    @surfboard.update(surfboard_params)
-    redirect_to surfboard_path
+    if @surfboard.update(surfboard_params)
+      redirect_to surfboard_path
+    else
+      render :new
+    end
   end
 
   def edit
@@ -56,11 +58,11 @@ class SurfboardsController < ApplicationController
 
   private
 
-  def set_surfboard
+  def find_surfboard
     @surfboard = Surfboard.find(params[:id])
   end
 
   def surfboard_params
-    params.require(:surfboard).permit(:title, :brand, :category, :board_dimensions, :location, :price_duration, :price, :deposit, :wave_size, :wave_type, :fin_type, :skill_level, :description, :photo)
+    params.require(:surfboard).permit(:name, :brand, :category, :location, :price, :deposit, :description, :photo)
   end
 end

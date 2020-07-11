@@ -1,8 +1,47 @@
 .navbar {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  z-index: 10;
+  &__item {
+    margin: 14px;
+    margin-right: 0;
+    align-self: center;
+
+    & a {
+      text-decoration: none;
+      color: black;
+      font-family: 'Playfair Display', serif;
+      text-transform: uppercase;
+      margin: 14px;
+      letter-spacing: 1px;
+
+      &:hover {
+        color: $teal;
+      }
+    }
+  }
+
+  &__brand {
+    font-size: 2rem;
+
+    &:hover {
+      color: $teal;
+    }
+  }
+}
+
+.navbar-toggler {
+  border: none;
+
+  &:focus {
+    border: none;
+    outline: none;
+  }
+}
+
+.dropdown-item {
+  width: auto;
+}
+
+.navbar-nav {
+  text-align: right;
 }
 
 .navbar-lewagon {
@@ -15,9 +54,5 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 50px;
-}
-
-#nav-brand-name {
-	font-family: 'Raleway';
+  width: 40px;
 }

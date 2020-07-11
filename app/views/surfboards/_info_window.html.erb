@@ -1,8 +1,5 @@
-<h5><%= surfboard.title %></h2>
-<ul>
-  <li>Brand - <%= surfboard.brand %></li>
-  <li>Catagory - <%= surfboard.category %></li>
-  <li>Wave Size - <%= surfboard.wave_size %></li>
-  <li>$<%= surfboard.price %> per day</li>
-</ul>
-<%= link_to "Inspect", surfboard_path(surfboard), class: "button" %>
+<h5><%= surfboard.name %></h2>
+<p>Brand - <%= surfboard.brand %></p>
+<p>Catagory - <%= surfboard.category %></p>
+<p>$<%= surfboard.price %> per day</p>
+<%= link_to "View", surfboard_path(surfboard), class: "btn btn-primary" %>

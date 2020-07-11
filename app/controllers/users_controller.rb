@@ -11,11 +11,6 @@ class UsersController < ApplicationController
 	def show
 	end
 
-	# def destroy
-	# 	@user.destroy
-	# 	redirect_to root_path
-	# end
-
 	private
 
 	def set_user
@@ -23,6 +18,6 @@ class UsersController < ApplicationController
   	end
 
 	def user_params
-		params.require(:user).permit(:description, :photo)
+		params.require(:user).permit(:description, :photo, :username)
 	end
 end

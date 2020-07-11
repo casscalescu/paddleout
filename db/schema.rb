@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_27_001409) do
+ActiveRecord::Schema.define(version: 2020_07_11_091138) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2020_02_27_001409) do
     t.date "start_date"
     t.date "end_date"
     t.float "total_price"
-    t.string "status", default: "Pending"
+    t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["surfboard_id"], name: "index_bookings_on_surfboard_id"
@@ -53,14 +53,9 @@ ActiveRecord::Schema.define(version: 2020_02_27_001409) do
     t.string "brand"
     t.float "price"
     t.string "category"
-    t.string "title"
+    t.string "name"
     t.text "description"
-    t.string "wave_type"
-    t.string "board_dimensions"
-    t.string "fin_type"
     t.float "deposit"
-    t.string "skill_level"
-    t.string "wave_size"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

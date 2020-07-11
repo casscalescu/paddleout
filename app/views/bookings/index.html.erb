@@ -1,18 +1,23 @@
 <% if @bookings.exists? %>
-  <ol>
-    <% @bookings.each do |booking| %>
-      <% if booking.surfboard.user == @user %>
-        <li><%= link_to "#{booking.user.username} wants to book your #{booking.surfboard.title} from #{booking.start_date} to #{booking.end_date}", booking_path(booking) %></li>
+  <h1>Others that want to book your board:</h1>
+  <% @bookings.each do |booking| %>
+    <% if booking.surfboard.user == current_user %>
+      <%= link_to booking_path(booking) do %>
+        <div class="card">
+          <%= "#{booking.user.username} wants to book your #{booking.surfboard.name} surfboard from #{booking.start_date} to #{booking.end_date}" %>
+        </div>
       <% end %>
     <% end %>
-  </ol>
+  <% end %>
 
-  <h5>I want to book:</h5>
-  <ol>
-    <% @bookings.each do |booking| %>
-      <% if booking.user.id == @user.id %>
-        <li><%= link_to "You want to book #{booking.surfboard.title} from #{booking.surfboard.user.username}, from #{booking.start_date} to #{booking.end_date}", booking_path(booking) %></li>
+  <h1>I want to book:</h1>
+  <% @bookings.each do |booking| %>
+    <% if booking.user == current_user %>
+      <%= link_to booking_path(booking) do %>
+        <div class="card">
+          <%= "You want to book #{booking.surfboard.name} from #{booking.surfboard.user.username}, from #{booking.start_date} to #{booking.end_date}" %>
+        </div>
       <% end %>
     <% end %>
-  </ol>
+  <% end %>
 <% end %>

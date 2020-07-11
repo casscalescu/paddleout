@@ -1,63 +1,10 @@
-<!-- Banner -->
-<div class="main-container">
+<%= form_tag surfboards_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    id: "surfboard_location",
+    placeholder: "Search by location"
+  %>
+<%= submit_tag "Find your Surfboard", class: "btn btn-primary" %>
+<% end %>
 
-  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(<%= asset_path('home-banner.jpg') %>);">
-    <div class="banner-container">
-      <h1>
-        <span id="banner-typed-text"></span>
-      </h1>
-      <div class="search-bar">
-        <%= form_tag surfboards_path, method: :get do %>
-          <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            id: "surfboard_location",
-            placeholder: "SEARCH BY LOCATION"
-          %>
-          <div id="banner-button">
-            <%= submit_tag "Find your Surfboard", class: "button" %>
-          </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-
-  <!-- How it works -->
-  <div class="secondary-container">
-    <h2>How it works</h2>
-    <div class="d-flex justify-content-around">
-      <%= link_to new_user_registration_path , :style => "text-decoration: none; color: black;" do %>
-      <div class="card-home text-uppercase">
-        <div class="card-home-content text-center">
-          <i class="home-icon fas far fa-hand-pointer"></i>
-          <p>Create an <br>account</p>
-        </div>
-      </div>
-      <% end %>
-      <%= link_to surfboards_path , :style => "text-decoration: none; color: black;" do %>
-      <div class="card-home text-uppercase">
-        <div class="card-home-content text-center">
-          <i class="home-icon fas fa-search-location"></i>
-          <p>Search for a surfboard nearby</p>
-        </div>
-      </div>
-      <% end %>
-      <%= link_to surfboards_path , :style => "text-decoration: none; color: black;" do %>
-      <div class="card-home text-uppercase">
-        <div class="card-home-content text-center">
-          <i class="home-icon fas fa-water"></i>
-          <p>Collect and head to the surf</p>
-        </div>
-      </div>
-      <% end %>
-
-
-    </div>
-  </div>
-
-  <!-- Secondary Banner -->
-  <div class="secondary-banner" style="background-image: linear-gradient(to bottom, rgba(22,22,22,0.1) 0%, rgba(22,22,22,0.5) 75%, #161616 100%), url(<%= asset_path('secondary-banner.jpg') %>);">
-    <h1 id="secondary-banner-text">SEA YOU SOON...</h1>
-  </div>
-
-</div>
+<!-- <span id="banner-typed-text"></span> -->
