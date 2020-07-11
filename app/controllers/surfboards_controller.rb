@@ -32,7 +32,7 @@ class SurfboardsController < ApplicationController
   end
 
   def show
-    @user = current_user
+    @user = @surfboard.user
   end
 
   def update

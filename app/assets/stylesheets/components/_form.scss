@@ -1,0 +1,39 @@
+.form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 12px;
+
+  &__label {
+    font-size: 0.8rem;
+
+    & abbr {
+      display: none;
+    }
+  }
+
+  &__input {
+    font-weight: 100;
+
+    &:hover {
+      border-color: $teal;
+    }
+
+    &:focus {
+      box-shadow: none;
+      border-color: $teal;
+    }
+  }
+
+  &__links {
+    margin-top: 20px;
+    text-align: center;
+
+    & p, a {
+      font-size: 0.8rem;
+    }
+
+    & a {
+      color: $teal;
+    }
+  }
+}

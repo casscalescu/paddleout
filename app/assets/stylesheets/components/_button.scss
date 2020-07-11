@@ -1,9 +1,24 @@
 .btn {
-
   &-primary {
+    background: $navy;
+    border: 1px solid $navy;
+    color: white;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.6px;
+    border-radius: 0;
+    // padding: 12px 30px;
 
+    &:hover, &:focus {
+      background: white;
+      border-color: $navy;
+      transition: 0.4s;
+      box-shadow: none;
+      color: $navy;
+    }
   }
+}
 
-  &:hover {
-	}
+.link {
+  color: $teal;
 }

@@ -1,5 +1,4 @@
 <h5><%= surfboard.name %></h2>
-<p>Brand - <%= surfboard.brand %></p>
-<p>Catagory - <%= surfboard.category %></p>
-<p>$<%= surfboard.price %> per day</p>
+<p><%= surfboard.category %> by <%= surfboard.brand %></p>
+<p>$<%= surfboard.price %> / day</p>
 <%= link_to "View", surfboard_path(surfboard), class: "btn btn-primary" %>
