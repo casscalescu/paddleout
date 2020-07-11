@@ -10,15 +10,30 @@
       <div class="modal-body">
         <%= simple_form_for @user do |f| %>
           <%= simple_form_for @surfboard do |f| %>
-          <%= f.input :name %>
-          <%= f.input :brand %>
-          <%= f.input :category, as: :radio_buttons, collection: @surfboard.cat %>
-          <%= f.input :price, label: "Price per Day" %>
-          <%= f.input :deposit, label: "Deposit on pickup" %>
-          <%= f.input :description, label: "Please enter a detailed description about your item, including its condition" %>
-          <%= f.input :location, label: "What is Surfboards location" %>
-          <%= f.input :photo, as: :file %>
-          <%= f.button :submit , class: "btn btn-primary"%>
+          <%= f.input :name,
+                      input_html: { class: "form__input"},
+                      label_html: { class: "form__label"} %>
+          <%= f.input :brand,
+                      input_html: { class: "form__input"},
+                      label_html: { class: "form__label"} %>
+          <%= f.input :category, as: :radio_buttons, collection: @surfboard.cat,
+                      input_html: { class: "form__input"},
+                      label_html: { class: "form__label"} %>
+          <%= f.input :price, label: "Price per Day",
+                      input_html: { class: "form__input"},
+                      label_html: { class: "form__label"} %>
+          <%= f.input :deposit, label: "Deposit on pickup",
+                      input_html: { class: "form__input"},
+                      label_html: { class: "form__label"} %>
+          <%= f.input :description, label: "Please enter a detailed description about your item, including its condition",
+                      input_html: { class: "form__input"},
+                      label_html: { class: "form__label"} %>
+          <%= f.input :location, label: "Pick up location",
+                      input_html: { class: "form__input"},
+                      label_html: { class: "form__label"} %>
+          <%= f.input :photo, as: :file,
+                      label_html: { class: "form__label"} %>
+          <%= f.button :submit , class: "btn btn-primary w-100" %>
         <% end %>
         <% end %>
       </div>

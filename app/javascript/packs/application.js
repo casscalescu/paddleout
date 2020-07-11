@@ -11,3 +11,6 @@ toggleDateInputs('#booking_start_date');
 initMapbox();
 initAutoCompleteField('#surfboard_location');
 loadDynamicBannerText();
+
+import AOS from 'aos';
+AOS.init();

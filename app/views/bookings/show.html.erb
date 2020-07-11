@@ -4,5 +4,4 @@
 <p><%= 'Start date: ' + @booking.start_date.to_s %></p>
 <p><%= 'End date: ' + @booking.end_date.to_s %></p>
 <p><%= 'Total Price: ' + '$' + @booking.total_price.to_s %></p>
-<p><%= 'Status: ' + @booking.status %></p>
 <%= link_to 'All Bookings', bookings_path, class: 'btn btn-primary' %>

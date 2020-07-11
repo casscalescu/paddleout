@@ -37,3 +37,16 @@
     }
   }
 }
+
+.col-form-label {
+  font-size: 0.8rem;
+
+  & abbr {
+    display: none;
+  }
+}
+
+.form-check-label {
+  color: $text;
+  font-size: 0.8rem;
+}

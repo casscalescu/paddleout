@@ -1,8 +1,17 @@
 <%= simple_form_for @booking do |f| %>
   <%= f.error_notification %>
-  <%= f.input :start_date, as: :string, label: "Dates", placeholder: "From", wrapper_html: { class: "inline_field_wrapper" } %>
-  <%= f.input :end_date, as: :string, label: '&nbsp;'.html_safe, placeholder: "To", disabled: true, wrapper_html: { class: "inline_field_wrapper" } %>
+  <%= f.input :start_date, as: :string,
+              label: "Dates",
+              placeholder: "From",
+              input_html: { class: "form__input"},
+              label_html: { class: "form__label"} %>
+  <%= f.input :end_date, as: :string,
+              label: '&nbsp;'.html_safe,
+              placeholder: "To",
+              disabled: true,
+              input_html: { class: "form__input"},
+              label_html: { class: "form__label"} %>
   <%= f.input :surfboard_id, as: :hidden, input_html: { :value => params[:surfboard_id] } %>
-  <%= f.button :submit, class: "button" %>
+  <%= f.button :submit, class: "btn btn-primary w-100" %>
 <% end %>
 

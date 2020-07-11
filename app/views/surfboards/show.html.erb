@@ -1,20 +1,27 @@
-<%= link_to "Back", :back %>
-<%= cl_image_tag @surfboard.photo.key %>
+<div class="container row show-page d-flex m-auto">
+  <!-- Image -->
+  <div class="col-12 col-lg-6 p-3">
+    <%= cl_image_tag @surfboard.photo.key, class: "w-100 mb-3", style: "object-fit: contain;" %>
+    <%= link_to "< Back", :back, class: "link" %>
+  </div>
 
-<h1><%= @surfboard.name %></h1>
-<p><%= @surfboard.description %></p>
-<p>Brand: <%= @surfboard.brand %></p>
-<p>Catagory: <%= @surfboard.category %></p>
-<p>Cost: $<%= @surfboard.price %> per day</p>
-<p>Deposit Upon Collection: $<%= @surfboard.deposit %></p>
+  <!-- Content -->
+  <div class="col-12 col-lg-6">
+    <h1 class="my-3"><%= @surfboard.name %> by <%= @surfboard.brand %></h1>
+    <p><strong>Category: </strong><%= @surfboard.category %></p>
+    <p><%= @surfboard.description %></p>
+    <p><strong>Cost: </strong><%= number_to_currency(@surfboard.price, strip_insignificant_zeros: true) %> per day</p>
+    <p><strong>Deposit Upon Collection: </strong><%= number_to_currency(@surfboard.deposit, strip_insignificant_zeros: true) %></p>
 
-<% if current_user == @surfboard.user %>
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#surfboardEditModal">Edit listing</button>
-  <%= link_to "Delete", surfboard_path(@surfboard), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
-<% end %>
+    <% if current_user == @surfboard.user %>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#surfboardEditModal">Edit listing</button>
+      <%= link_to "Delete", surfboard_path(@surfboard), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
+    <% end %>
 
-<% if current_user != @surfboard.user %>
-  <%= link_to "Book This One", new_booking_path(surfboard_id: @surfboard.id) %>
-<% end %>
+    <% if current_user != @surfboard.user %>
+      <%= link_to "Make a booking", new_booking_path(surfboard_id: @surfboard.id), class: "btn btn-primary" %>
+    <% end %>
 
-<%= render "edit" %>
+    <%= render 'edit' %>
+  </div>
+</div>
