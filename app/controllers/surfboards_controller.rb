@@ -33,6 +33,8 @@ class SurfboardsController < ApplicationController
 
   def show
     @user = @surfboard.user
+    @booking = Booking.new
+    # raise
   end
 
   def update
