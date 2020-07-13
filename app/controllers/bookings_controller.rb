@@ -11,7 +11,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.total_price = calculate_total_price(@booking) if @booking.valid?
     if @booking.save
-      redirect_to bookings_path
+      redirect_to user_path(current_user)
     else
       @surfboard = @booking.surfboard
       render 'bookings/new'
@@ -19,10 +19,6 @@ class BookingsController < ApplicationController
   end
 
   def show
-  end
-
-  def index
-    @bookings = Booking.all
   end
 
   private

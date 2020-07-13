@@ -1,0 +1,20 @@
+<% if @user.surfboards.count.zero? %>
+  <div class="alert alert-warning position-static" role="alert">
+    No current listings
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<% else %>
+  <div class="row">
+    <% @user.surfboards.each do |surfboard| %>
+      <div class="card card__index col-12 col-sm-6 col-md-4 col-lg-3">
+        <%= link_to surfboard_path(surfboard) do %>
+          <%= cl_image_tag surfboard.photo.key, class: "card__image" %>
+          <h5><%= surfboard.name %></h5>
+          <%= link_to "View listing", surfboard_path(surfboard), class: "link pb-3" %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

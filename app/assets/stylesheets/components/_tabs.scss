@@ -1,0 +1,29 @@
+.tabs {
+  margin: 32px 0;
+  display: flex;
+  justify-content: center;
+
+  &__label {
+    margin-right: 36px;
+    text-decoration: none;
+    color: black;
+
+    &:hover {
+      color: $teal;
+      cursor: pointer;
+    }
+
+    &.active {
+      border-bottom: 1.5px solid $teal;
+    }
+  }
+
+  &__content {
+    margin: 0;
+    display: none;
+
+    &.active {
+      display: block;
+    }
+  }
+}
