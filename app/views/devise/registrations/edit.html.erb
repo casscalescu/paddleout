@@ -13,19 +13,16 @@
                 hint: "leave it blank if you don't want to change it",
                 required: false,
                 input_html: { class: "form__input"},
-                label_html: { class: "form__label"},
-                wrapper_html: { class: "form__wrapper"} %>
+                label_html: { class: "form__label"} %>
     <%= f.input :password_confirmation,
                 required: false,
                 input_html: { class: "form__input"},
-                label_html: { class: "form__label"},
-                wrapper_html: { class: "form__wrapper"} %>
+                label_html: { class: "form__label"} %>
     <%= f.input :current_password,
                         hint: "we need your current password to confirm your changes",
                         required: true,
                         input_html: { class: "form__input"},
-                        label_html: { class: "form__label"},
-                        wrapper_html: { class: "form__wrapper"} %>
+                        label_html: { class: "form__label"} %>
     <%= f.button :submit, "Update", class: "btn btn-primary w-100" %>
   <% end %>
 

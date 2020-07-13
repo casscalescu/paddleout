@@ -24,4 +24,11 @@
       text-decoration: none;
     }
   }
+
+  &__image {
+    height: 260px;
+    width: 100%;
+    object-fit: cover;
+    margin-bottom: 12px;
+  }
 }

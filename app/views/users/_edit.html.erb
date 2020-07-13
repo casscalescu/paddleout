@@ -9,10 +9,16 @@
       </div>
       <div class="modal-body">
         <%= simple_form_for @user do |f| %>
-          <%= f.input :username %>
-          <%= f.input :description %>
-          <%= f.input :photo, as: :file %>
-          <%= f.button :submit, "Save", class: "btn btn-primary" %>
+          <%= f.input :username,
+              input_html: { class: "form__input"},
+              label_html: { class: "form__label"} %>
+          <%= f.input :description,
+                      label: "About me",
+                      input_html: { class: "form__input"},
+                      label_html: { class: "form__label"} %>
+          <%= f.input :photo, as: :file,
+                      label_html: { class: "form__label"} %>
+          <%= f.button :submit, "Save", class: "btn btn-primary w-100" %>
         <% end %>
       </div>
     </div>

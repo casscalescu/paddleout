@@ -20,9 +20,9 @@
 }
 
 .link {
-  color: $teal;
+  color: $teal !important;
 
   &:hover {
-    color: $teal;
+    color: $teal !important;
   }
 }

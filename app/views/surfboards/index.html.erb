@@ -4,7 +4,7 @@
       <% @surfboards.each do |surfboard| %>
         <div class="card card__index col-12 col-lg-6 col-xl-4">
           <%= link_to surfboard_path(surfboard) do %>
-            <%= cl_image_tag surfboard.photo.key, style: "height: 260px; width: 100%; object-fit: cover; margin-bottom: 12px;" %>
+            <%= cl_image_tag surfboard.photo.key, class: "card__image" %>
             <h5><%= surfboard.name %> by <%= surfboard.brand %></h5>
             <p style="font-weight: 100;"><%= surfboard.brand %></p>
             <p>$<%= surfboard.price %> / day</p>

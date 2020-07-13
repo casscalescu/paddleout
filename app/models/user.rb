@@ -5,7 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :surfboards, dependent: :destroy
   has_many :bookings
-  # has_many :surfboards, through: :bookings => not necessary because you can call user.booking.surfboard
 
   has_one_attached :photo
 

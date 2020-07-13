@@ -21,7 +21,7 @@
         </li>
         <li class="navbar__item dropdown">
           <% if current_user.photo.attachment.nil? %>
-            <%= image_tag "avatar.png", alt: "Avatar", width: 200, class: "avatar avatar__navbar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= image_tag "avatar.png", alt: "Avatar", width: 200, class: "avatar avatar--small dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% else %>
             <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% end %>

@@ -5,13 +5,11 @@
                 required: false,
                 autofocus: true,
                 input_html: { class: "form__input"},
-                label_html: { class: "form__label"},
-                wrapper_html: { class: "form__wrapper"} %>
+                label_html: { class: "form__label"} %>
     <%= f.input :password,
                 required: false,
                 input_html: { class: "form__input"},
-                label_html: { class: "form__label"},
-                wrapper_html: { class: "form__wrapper"} %>
+                label_html: { class: "form__label"} %>
     <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
     <%= f.button :submit, "Log in", class: "btn btn-primary w-100" %>
   <% end %>
