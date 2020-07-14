@@ -1,10 +1,26 @@
-<%= form_tag surfboards_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    id: "surfboard_location",
-    placeholder: "Search by location"
-  %>
-  <%= submit_tag "Find your Surfboard", class: "btn btn-primary" %>
-<% end %>
+<div class="banner d-flex row">
+  <div class="banner__half d-flex col-12 col-md-7" data-aos="fade-up" data-aos-duration="1000">
+    <div class="banner__content">
+      <h1 class="banner__heading">Rent a surfboard... hit the waves</h1>
+      <%= form_tag surfboards_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          id: "surfboard_location",
+          placeholder: "Search by location...",
+          class: "form__input"
+        %>
+        <%= submit_tag "Go", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="banner__half banner__half--background d-flex col-12 col-md-5">
+    <div class="banner__content">
+      <p class="banner__text">You don't need to own your own board for your next surf session.</p>
+      <p class="banner__text">Find nearby pick up spots or rent out your own board</p>
+    </div>
+  </div>
+</div>
 
-<!-- <span id="banner-typed-text"></span> -->
+
+
+

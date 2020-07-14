@@ -1,0 +1,25 @@
+.banner {
+  height: 90vh;
+
+  &__heading {
+    font-size: 2.6em;
+  }
+
+  &__half {
+    padding: 0 6%;
+    align-items: center;
+    justify-content: center;
+
+    &--background {
+      background: linear-gradient(0deg, rgba(4, 63, 108, 0.6), rgba(91, 193, 192, 0.5)), image-url("home-banner.jpg");
+      background-size: cover;
+    }
+  }
+
+  &__text {
+    color: white;
+    font-size: 1.5em;
+    font-weight: 400;
+  }
+}
+
