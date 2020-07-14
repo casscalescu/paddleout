@@ -31,6 +31,9 @@ Using [Bundler](https://github.com/bundler/bundler) and [Yarn](https://github.co
 
 ```shell
 bundle && yarn
+
+bundle install
+yarn add aos@next
 ```
 
 ### Add secret keys
