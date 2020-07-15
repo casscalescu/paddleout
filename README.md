@@ -8,7 +8,7 @@ Built using Ruby on Rails.
 
 ```shell
 git clone git@github.com:casscalescu/paddleout.git
-cd project
+cd paddleout
 ```
 
 ### Check your Ruby version
